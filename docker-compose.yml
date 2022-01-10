@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+  mysql:
+    container_name: wordpress-dev-mysql
+    restart: always
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: defiant
+      MYSQL_PASSWORD: alpine
+      MYSQL_DATABASE: wordpress-dev
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "3366:3306"
+  wordpress:
+    container_name: wordpress-dev
+    restart: always
+    image: wordpress
+    ports:
+      - 8888:80
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: defiant
+      WORDPRESS_DB_PASSWORD: alpine
+      WORDPRESS_DB_NAME: wordpress-dev
+    volumes:
+      - ./:/var/www/html/wp-content/plugins/post-nag
+      - ../wordpress-dev:/var/www/html
+volumes:
+  mysql:
