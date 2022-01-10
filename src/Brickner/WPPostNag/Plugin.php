@@ -12,12 +12,6 @@ use function add_settings_field;
 use function add_settings_section;
 use function get_option;
 
-/**
- * @TODO - Allow for custom 'nag' messages.
- * @TODO - Unit tests?
- * @TODO -
- *
- */
 class Plugin
 {
 
@@ -54,7 +48,7 @@ class Plugin
 
     # HTML Template Constants
     const NAG_HTML_TEMPLATE = '<p class="alignright">&nbsp;&ndash;%s</p>';
-    const SETTINGS_NUMERICAL_INPUT_HTML = '<input type="number" class="regular-text" step="0.01" name="%s" value="%s">';
+    const SETTINGS_NUMERICAL_INPUT_HTML = '<input type="number" step="0.01" name="%s" value="%s">';
 
     # SQL Query Constants
     const LAST_POSTED_DATE_SQL = "SELECT MAX(post_date) FROM %s WHERE post_status = %%s AND post_type = %%s";
