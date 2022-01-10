@@ -10,15 +10,15 @@ Users can set a number of days that the plugin should be patient with them as we
 gloves come off 😊. Different "nag" messages appear depending on the time since the last post and the user's settings.
 
 ### Example Nag
-[!Nag Screen](imgs/nag-screen.png)
+[!Nag Screen](/imgs/nag-screen.png)
 
 ### Nag Settings
 
-[!Nag Screen](imgs/settings-screen-normal.png)
+[!Nag Screen](/imgs/settings-screen-normal.png)
 
-[!Nag Screen](imgs/settings-screen-patient.png)
+[!Nag Screen](/imgs/settings-screen-patient.png)
 
-[!Nag Screen](imgs/settings-screen-impatient.png)
+[!Nag Screen](/imgs/settings-screen-impatient.png)
 
 ## Development
 

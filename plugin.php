@@ -7,6 +7,7 @@
  * Requires PHP: 7.4
  * Author: Josh Brickner
  * License: MIT
+ * Copyright: 2022 Josh Brickner <josh@brickner.dev>
  */
 
 try {

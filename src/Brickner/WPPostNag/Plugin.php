@@ -1,4 +1,11 @@
 <?php /** @noinspection PhpUndefinedFunctionInspection */
+/**
+ * Copyright 2022 Josh Brickner <josh@brickner.dev>
+ *
+ * Made available under the MIT license.
+ * https://en.wikipedia.org/wiki/MIT_License#License_terms
+ *
+ */
 
 namespace Brickner\WPPostNag;
 
