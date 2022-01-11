@@ -13,6 +13,8 @@ class PluginTest extends TestCase
 {
     public function setUp(): void
     {
+        ini_set('error_reporting', 'E_ALL');
+        ini_set('display_errors', 'true');
         require_once('tests/WPStubs.php');
     }
 
