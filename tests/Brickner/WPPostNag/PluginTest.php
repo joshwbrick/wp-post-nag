@@ -7,8 +7,6 @@ use Exception;
 use PHPUnit\Framework\TestCase;
 use WPStubs;
 
-// @TODO Run coverage
-// @TODO Setup CI on GitHub
 class PluginTest extends TestCase
 {
     public function setUp(): void

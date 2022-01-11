@@ -11,8 +11,8 @@
  */
 
 try {
-	require_once("vendor/autoload.php");
-	new Brickner\WPPostNag\Plugin;
+    require_once("vendor/autoload.php");
+    new Brickner\WPPostNag\Plugin;
 } catch (Exception $e) {
-	error_log($e->getMessage());
+    error_log($e->getMessage());
 }
