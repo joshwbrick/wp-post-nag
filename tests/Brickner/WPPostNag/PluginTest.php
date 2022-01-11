@@ -13,7 +13,7 @@ class PluginTest extends TestCase
 {
     public function setUp(): void
     {
-        require_once('tests/wp-stubs.php');
+        require_once('tests/WPStubs.php');
     }
 
     public function testConstructorWPError()

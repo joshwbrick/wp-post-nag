@@ -79,6 +79,7 @@ class WPStubs extends MockeryTestCase
 
         $wpdb = Mockery::mock();
         $wpdb->shouldReceive('prepare');
+        $wpdb->allows('posts');
         $wpdb->shouldReceive('get_var')->andReturn(0);
     }
 
@@ -88,6 +89,7 @@ class WPStubs extends MockeryTestCase
 
         $wpdb = Mockery::mock();
         $wpdb->shouldReceive('prepare');
+        $wpdb->allows('posts');
         $wpdb->shouldReceive('get_var')->andReturn(date('Y-m-d H:i:s'));
     }
 
@@ -99,6 +101,7 @@ class WPStubs extends MockeryTestCase
         $date = date('Y-m-d H:i:s', time() - $time);
         $wpdb = Mockery::mock();
         $wpdb->shouldReceive('prepare');
+        $wpdb->allows('posts');
         $wpdb->shouldReceive('get_var')->andReturn($date);
     }
 
@@ -110,6 +113,7 @@ class WPStubs extends MockeryTestCase
         $date = date('Y-m-d H:i:s', time() - $time);
         $wpdb = Mockery::mock();
         $wpdb->shouldReceive('prepare');
+        $wpdb->allows('posts');
         $wpdb->shouldReceive('get_var')->andReturn($date);
     }
 }
