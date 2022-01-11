@@ -1,5 +1,7 @@
 # WP Post Nag
 
+[![Build & Tests](https://github.com/joshwbrick/wp-post-nag/actions/workflows/github-php-actions.yml/badge.svg?branch=master&event=push)](https://github.com/joshwbrick/wp-post-nag/actions/workflows/github-php-actions.yml)
+
 Have you been blogging at the frequency you want too? Let WP Post Nag keep you honest.
 
 ## Screenshots
