@@ -1,4 +1,7 @@
 <?php /** @noinspection PhpUndefinedFunctionInspection */
+
+declare(strict_types=1);
+
 /**
  * Copyright 2022 Josh Brickner <josh@brickner.dev>
  *
@@ -81,13 +84,11 @@ class Plugin
      */
     public function setupSettings()
     {
-
         if (
             function_exists('register_setting')
             && function_exists('add_settings_field')
             && function_exists('add_settings_section')
         ) {
-
             register_setting(self::SETTINGS_PAGE, self::SETTINGS_PAT_ID, 'floatval');
             register_setting(self::SETTINGS_PAGE, self::SETTINGS_IMPAT_ID, 'floatval');
 
@@ -133,12 +134,10 @@ class Plugin
      */
     public function getNag()
     {
-
-        $lastPostDate   = $this->queryLastPostDate(self::FILTER_STATUS, self::FILTER_TYPE);
-        $timeOfLastPost = strtotime($lastPostDate); # Returns bool `false` if time not determined.
+        $timeOfLastPost = $this->queryLastPostTime(self::FILTER_STATUS, self::FILTER_TYPE);
 
         $out = self::INSTALLED_MSG;
-        if (false !== $timeOfLastPost) { # Ensure a valid time was determined.
+        if (0 !== $timeOfLastPost) { # Ensure a valid time was determined.
             $timeSinceLastPost = time() - $timeOfLastPost;
 
             $patDays   = $this->getPatientDaysOption() * self::SECONDS_IN_DAY;
@@ -161,9 +160,8 @@ class Plugin
         echo sprintf(self::NAG_HTML_TEMPLATE, $out);
     }
 
-    protected function queryLastPostDate(string $status, string $type): string
+    protected function queryLastPostTime(string $status, string $type): int
     {
-
         global $wpdb;
 
         # Get the name of the `posts` table from WordPress, no user input here.
@@ -179,10 +177,15 @@ class Plugin
         $postedDate = $wpdb->get_var($preparedQuery);
 
         if ( ! is_string($postedDate) || empty($postedDate)) {
-            return '';
+            return 0;
         }
 
-        return $postedDate;
+        $postedTimestamp = strtotime($postedDate);
+        if (false === $postedTimestamp) {
+            $postedTimestamp = 0;
+        }
+
+        return $postedTimestamp;
     }
 
     protected function timeToDaysHoursMinutes($time): array
