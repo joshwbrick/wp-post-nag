@@ -9,9 +9,13 @@ use WPStubs;
 
 // @TODO Run coverage
 // @TODO Setup CI on GitHub
-
 class PluginTest extends TestCase
 {
+    public function setUp(): void
+    {
+        require_once('tests/wp-stubs.php');
+    }
+
     public function testConstructorWPError()
     {
         try {
@@ -23,7 +27,7 @@ class PluginTest extends TestCase
 
     public function testConstructorAddAction()
     {
-        WPStubs::mock('add_action');
+        WPStubs::stub('add_action');
 
         try {
             new Plugin;
@@ -36,7 +40,7 @@ class PluginTest extends TestCase
 
     public function testSetupSettingsWPErrors()
     {
-        WPStubs::mock('add_action');
+        WPStubs::stub('add_action');
 
         try {
             $plugin = new Plugin;
@@ -48,10 +52,10 @@ class PluginTest extends TestCase
 
     public function testSetupSettings()
     {
-        WPStubs::mock('add_action');
-        WPStubs::mock('register_setting');
-        WPStubs::mock('add_settings_field');
-        WPStubs::mock('add_settings_section');
+        WPStubs::stub('add_action');
+        WPStubs::stub('register_setting');
+        WPStubs::stub('add_settings_field');
+        WPStubs::stub('add_settings_section');
 
         try {
             $plugin = new Plugin;
@@ -65,7 +69,7 @@ class PluginTest extends TestCase
 
     public function testSettingsNumericalInputWPError()
     {
-        WPStubs::mock('add_action');
+        WPStubs::stub('add_action');
 
         try {
             $plugin = new Plugin;
@@ -77,8 +81,8 @@ class PluginTest extends TestCase
 
     public function testSettingsNumericalInput()
     {
-        WPStubs::mock('add_action');
-        WPStubs::mock('get_option');
+        WPStubs::stub('add_action');
+        WPStubs::stub('get_option');
 
         $output = '';
         try {
@@ -98,9 +102,9 @@ class PluginTest extends TestCase
 
     public function testGetNagNoPosts()
     {
-        WPStubs::mock('add_action');
-        WPStubs::mock('wpdb');
-        WPStubs::mock('get_option');
+        WPStubs::stub('add_action');
+        WPStubs::stub('wpdb');
+        WPStubs::stub('get_option');
 
         $output = '';
         try {
@@ -118,9 +122,9 @@ class PluginTest extends TestCase
 
     public function testGetNagPostsDefaultNag()
     {
-        WPStubs::mock('add_action');
-        WPStubs::mock('wpdb_default_nag');
-        WPStubs::mock('get_option');
+        WPStubs::stub('add_action');
+        WPStubs::stub('wpdb_default_nag');
+        WPStubs::stub('get_option');
 
         $output = '';
         try {
@@ -138,9 +142,9 @@ class PluginTest extends TestCase
 
     public function testGetNagPostsPatientNag()
     {
-        WPStubs::mock('add_action');
-        WPStubs::mock('wpdb_pat_nag');
-        WPStubs::mock('get_option');
+        WPStubs::stub('add_action');
+        WPStubs::stub('wpdb_pat_nag');
+        WPStubs::stub('get_option');
 
         $output = '';
         try {
@@ -158,9 +162,9 @@ class PluginTest extends TestCase
 
     public function testGetNagPostsImpatientNag()
     {
-        WPStubs::mock('add_action');
-        WPStubs::mock('wpdb_impat_nag');
-        WPStubs::mock('get_option');
+        WPStubs::stub('add_action');
+        WPStubs::stub('wpdb_impat_nag');
+        WPStubs::stub('get_option');
 
         $output = '';
         try {

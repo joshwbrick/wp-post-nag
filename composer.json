@@ -14,12 +14,12 @@
   },
   "autoload": {
     "psr-4": {
-      "": "src/"
+      "Brickner\\": "src/Brickner"
     }
   },
   "autoload-dev": {
       "psr-4":{
-        "": "tests/"
+        "Brickner\\": "tests/Brickner"
       }
   },
   "require-dev": {
