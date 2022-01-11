@@ -1,5 +1,7 @@
 # WP Post Nag
 
+[![Build & Tests](https://github.com/joshwbrick/wp-post-nag/actions/workflows/github-php-actions.yml/badge.svg?branch=master&event=push)](https://github.com/joshwbrick/wp-post-nag/actions/workflows/github-php-actions.yml)
+
 Have you been blogging at the frequency you want too? Let WP Post Nag keep you honest.
 
 ## Screenshots
@@ -31,7 +33,7 @@ This repository comes with its own docker based development server. Simply run t
 
 ### Dependencies
 
-There are zero runtime dependencies for this project. However, PHPUnit is the sole development dependency.
+There are zero runtime dependencies for this project. PHPUnit and Mockery are the only development dependencies.
 
 
 ## License
