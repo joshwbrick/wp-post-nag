@@ -15,7 +15,7 @@ class PluginTest extends TestCase
     public function testConstructorWPError()
     {
         try {
-            $plugin = new Plugin;
+            new Plugin;
         } catch (Exception $e) {
             $this->assertEquals(Plugin::WP_MISSING_ERR, $e->getMessage());
         }
@@ -26,7 +26,7 @@ class PluginTest extends TestCase
         WPStubs::mock('add_action');
 
         try {
-            $plugin = new Plugin;
+            new Plugin;
         } catch (Exception $e) {
             $this->fail('Exception received:' . $e->getMessage());
         }
@@ -41,7 +41,7 @@ class PluginTest extends TestCase
         try {
             $plugin = new Plugin;
             $plugin->setupSettings();
-        } catch (Exception $e) {;
+        } catch (Exception $e) {
             $this->assertEquals(Plugin::WP_MISSING_ERR, $e->getMessage());
         }
     }
@@ -56,7 +56,7 @@ class PluginTest extends TestCase
         try {
             $plugin = new Plugin;
             $plugin->setupSettings();
-        } catch (Exception $e) {;
+        } catch (Exception $e) {
             $this->fail('Exception received:' . $e->getMessage());
         }
 
@@ -70,7 +70,7 @@ class PluginTest extends TestCase
         try {
             $plugin = new Plugin;
             $plugin->settingsNumericalInput('id', 'default');
-        } catch (Exception $e) {;
+        } catch (Exception $e) {
             $this->assertEquals(Plugin::WP_MISSING_ERR, $e->getMessage());
         }
     }
@@ -87,7 +87,7 @@ class PluginTest extends TestCase
             $plugin->settingsNumericalInput('id', 'default');
             $output = ob_get_contents();
             ob_end_clean();
-        } catch (Exception $e) {;
+        } catch (Exception $e) {
             $this->fail('Exception received:' . $e->getMessage());
         }
 
@@ -109,7 +109,7 @@ class PluginTest extends TestCase
             $plugin->getNag();
             $output = ob_get_contents();
             ob_end_clean();
-        } catch (Exception $e) {;
+        } catch (Exception $e) {
             $this->fail('Exception received:' . $e->getMessage());
         }
 
@@ -129,7 +129,7 @@ class PluginTest extends TestCase
             $plugin->getNag();
             $output = ob_get_contents();
             ob_end_clean();
-        } catch (Exception $e) {;
+        } catch (Exception $e) {
             $this->fail('Exception received:' . $e->getMessage());
         }
 
@@ -149,7 +149,7 @@ class PluginTest extends TestCase
             $plugin->getNag();
             $output = ob_get_contents();
             ob_end_clean();
-        } catch (Exception $e) {;
+        } catch (Exception $e) {
             $this->fail('Exception received:' . $e->getMessage());
         }
 
@@ -169,7 +169,7 @@ class PluginTest extends TestCase
             $plugin->getNag();
             $output = ob_get_contents();
             ob_end_clean();
-        } catch (Exception $e) {;
+        } catch (Exception $e) {
             $this->fail('Exception received:' . $e->getMessage());
         }
 
