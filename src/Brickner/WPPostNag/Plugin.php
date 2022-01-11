@@ -1,5 +1,4 @@
-<?php /** @noinspection PhpUndefinedFunctionInspection */
-
+<?php
 declare(strict_types=1);
 
 /**
