@@ -33,7 +33,7 @@ This repository comes with its own docker based development server. Simply run t
 
 ### Dependencies
 
-There are zero runtime dependencies for this project. However, PHPUnit is the sole development dependency.
+There are zero runtime dependencies for this project. However, PHPUnit and Mockery are the only development dependencies.
 
 
 ## License
