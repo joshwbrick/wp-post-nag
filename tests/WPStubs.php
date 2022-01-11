@@ -80,7 +80,9 @@ class WPStubs extends MockeryTestCase
         $wpdb = Mockery::mock();
         $wpdb->shouldReceive('prepare');
         $wpdb->allows('posts');
-        $wpdb->shouldReceive('get_var')->andReturn(0);
+        $wpdb->shouldReceive('get_var')
+             ->andSet('posts', ['wp_posts'])
+             ->andReturn(0);
     }
 
     protected static function stubWpdbDefaultNag()
@@ -90,7 +92,9 @@ class WPStubs extends MockeryTestCase
         $wpdb = Mockery::mock();
         $wpdb->shouldReceive('prepare');
         $wpdb->allows('posts');
-        $wpdb->shouldReceive('get_var')->andReturn(date('Y-m-d H:i:s'));
+        $wpdb->shouldReceive('get_var')
+             ->andSet('posts', ['wp_posts'])
+             ->andReturn(date('Y-m-d H:i:s'));
     }
 
     protected static function stubWpdbPatNag()
@@ -101,8 +105,9 @@ class WPStubs extends MockeryTestCase
         $date = date('Y-m-d H:i:s', time() - $time);
         $wpdb = Mockery::mock();
         $wpdb->shouldReceive('prepare');
-        $wpdb->allows('posts');
-        $wpdb->shouldReceive('get_var')->andReturn($date);
+        $wpdb->shouldReceive('get_var')
+             ->andSet('posts', ['wp_posts'])
+             ->andReturn($date);
     }
 
     protected static function stubWpdbImpatNag()
@@ -114,6 +119,8 @@ class WPStubs extends MockeryTestCase
         $wpdb = Mockery::mock();
         $wpdb->shouldReceive('prepare');
         $wpdb->allows('posts');
-        $wpdb->shouldReceive('get_var')->andReturn($date);
+        $wpdb->shouldReceive('get_var')
+             ->andSet('posts', ['wp_posts'])
+             ->andReturn($date);
     }
 }
